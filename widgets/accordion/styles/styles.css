@@ -1,0 +1,50 @@
+/*----- Accordion -----*/
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.accordion {
+    overflow:hidden;
+}
+
+/*----- Section Titles -----*/
+.accordion-section-title {
+
+    padding: 0.5rem 1rem;
+    display:block;
+
+    transition:all linear 0.15s;
+    background-color: #E9E9E9;
+    border: 1px solid #E9E9E9;
+}
+
+.accordion-section-title:hover {
+	background-color: #E0E0E0;
+  cursor: pointer;
+}
+.accordion-section-title.active {
+    background-color: #E0E0E0;
+}
+.accordion-section-title::after {
+    /*content: "+";*/
+}
+
+.accordion-section-title.active::after {
+    /*content: "-";*/
+}
+
+/*.accordion-section:last-child .accordion-section-title {
+    border-bottom:none;
+}*/
+
+/*----- Section Content -----*/
+.accordion-section-content {
+    padding: 1rem;
+    display:none;
+    background-color: #FCFCFC;
+    border-right: 1px solid #E9E9E9;
+    border-left: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+}

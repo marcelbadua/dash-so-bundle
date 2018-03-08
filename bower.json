@@ -1,0 +1,17 @@
+{
+  "name": "dash-so-widget-bundle",
+  "homepage": "https://bitbucket.org/marcelbadua/dash-so-widget-bundle",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#^2.6.1"
+  }
+}

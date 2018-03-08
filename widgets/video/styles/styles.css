@@ -1,0 +1,23 @@
+.video-widget {
+  display: block;
+  position: relative;
+}
+
+.video-widget:after {
+  font-family: 'FontAwesome';
+  content: '\f04b';
+  position: absolute;
+  top: 38%;
+  left: 43.5%;
+  right: 43.5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #FFFFFF;
+  font-size: 3rem;
+  background-color: gray;
+  line-height: 1;
+  padding: 0.75rem 1.5rem;
+}

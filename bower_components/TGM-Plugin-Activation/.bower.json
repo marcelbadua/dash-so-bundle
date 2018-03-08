@@ -1,0 +1,15 @@
+{
+  "name": "TGM-Plugin-Activation",
+  "homepage": "https://github.com/TGMPA/TGM-Plugin-Activation",
+  "version": "2.6.1",
+  "_release": "2.6.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.6.1",
+    "commit": "c626d0d91fc8ef24916e809c7b79eeafab1c1cac"
+  },
+  "_source": "https://github.com/TGMPA/TGM-Plugin-Activation.git",
+  "_target": "^2.6.1",
+  "_originalSource": "https://github.com/TGMPA/TGM-Plugin-Activation.git",
+  "_direct": true
+}
