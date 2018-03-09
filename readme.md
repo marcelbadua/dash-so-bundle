@@ -10,3 +10,10 @@ This widget includes
   - table
   - video background
   - youtube embed
+
+  ------
+
+  If you like and using this plugin, feel free to send me a hi, I would really appreciate that.
+
+   - [Twitter](https://twitter.com/marcelbadua)
+   - [marcelbadua](http://marcelbadua.com/)
