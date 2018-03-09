@@ -1,12 +1,11 @@
 <?php
 
 /*
-Widget Name: Video Widget
-Description: Video Widget
+Widget Name: Dash: Youtube Embed Widget
+Description: Allows you to embed Youtube videos.
 Author: Marcel Badua
-Author URI: http://marcelbadua.com
-Widget URI:
-Video URI:
+Author URI: https://github.com/marcelbadua
+Widget URI: https://github.com/marcelbadua/dash-so-bundle
 */
 
 function youtube_id_from_url($url) {
@@ -33,7 +32,7 @@ function youtube_id_from_url($url) {
     return false;
 }
 
-class DASH_VIDEO_WIDGET extends SiteOrigin_Widget
+class DASH_YOUTUBE_EMBED_WIDGET extends SiteOrigin_Widget
 {
 
     function __construct() {
@@ -44,18 +43,16 @@ class DASH_VIDEO_WIDGET extends SiteOrigin_Widget
         parent::__construct(
 
         // The unique id for your widget.
-        'dash-video-widget',
+        'dash-youtube-embed-widget',
 
         // The name of the widget for display purposes.
-        __('Video Widget', 'widget-text-domain') ,
+        __('Dash: Youtube Embed Widget', 'dash-so-bundle') ,
 
         // The $widget_options array, which is passed through to WP_Widget.
         // It has a couple of extras like the optional help URL, which should link to your sites help or support page.
         array(
-            'description' => __('Video Widget', 'widget-text-domain') ,
-
-            //'help'        => 'http://example.com/dash-youtube-modal-docs',
-
+            'description' => __('Allows you to embed Youtube videos.', 'dash-so-bundle') ,
+            'help'        => 'https://github.com/marcelbadua/dash-so-bundle',
         ) ,
 
         //The $control_options array, which is passed through to WP_Widget
@@ -66,20 +63,24 @@ class DASH_VIDEO_WIDGET extends SiteOrigin_Widget
 
             'title' => array(
                 'type' => 'text',
-                'label' => __('Title', 'widget-text-domain') ,
+                'label' => __('Title', 'dash-so-bundle') ,
                 'default' => 'Title'
             ) ,
             'url' => array(
                 'type' => 'text',
-                'label' => __('URL', 'widget-text-domain')
+                'label' => __('URL', 'dash-so-bundle')
             ) ,
-            'as_modal' => array(
+            'caption' => array(
+                'type' => 'textarea',
+                'label' => __( 'Caption', 'dash-so-bundle' ),
+                'default' => '',
+                'rows' => 4
+            ),
+            'youtube_thumbnail' => array(
                 'type' => 'checkbox',
-                'label' => __( 'Open Video as Modal', 'widget-form-fields-text-domain' ),
+                'label' => __( 'Use default Youtube thumbnail', 'dash-so-bundle' ),
                 'default' => true
             )
-
-
         ) ,
 
         //The $base_folder path string.
@@ -112,24 +113,24 @@ class DASH_VIDEO_WIDGET extends SiteOrigin_Widget
         $this->register_frontend_scripts(
             array(
                 array(
-                    'dash-video-widget',
-                    plugin_dir_url(__FILE__) . 'js/script.js',
+                    'dash-youtube-embed-widget',
+                    plugin_dir_url(__FILE__) . 'js/dash-youtube-embed-widget.js',
                     array( 'jquery', 'fancybox' ),
                     '0.0.1',
                     TRUE
                 )
             )
         );
-        $this->register_frontend_styles(
-            array(
-                array(
-                    'dash-video-widget',
-                    plugin_dir_url(__FILE__) . 'styles/styles.css',
-                    array(),
-                    '0.0.1'
-                ),
-            )
-        );
+        // $this->register_frontend_styles(
+        //     array(
+        //         array(
+        //             'dash-youtube-embed-widget',
+        //             plugin_dir_url(__FILE__) . 'styles/dash-youtube-embed-widget.css',
+        //             array(),
+        //             '0.0.1'
+        //         ),
+        //     )
+        // );
         $this->register_frontend_styles(
             array(
                 array(
@@ -151,4 +152,4 @@ class DASH_VIDEO_WIDGET extends SiteOrigin_Widget
     }
 }
 
-siteorigin_widget_register('dash-video-widget', __FILE__, 'DASH_VIDEO_WIDGET');
+siteorigin_widget_register('dash-youtube-embed-widget', __FILE__, 'DASH_YOUTUBE_EMBED_WIDGET');

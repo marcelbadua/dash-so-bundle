@@ -1,14 +1,14 @@
 <?php
 
 /*
-Widget Name: Tab widget
-Description: Tab widget
-Author: Me
-Author URI: http://example.com
+Widget Name: Dash: Tab Widget
+Description: Adds a tab widget.
+Author: Marcel Badua
+Author URI: https://github.com/marcelbadua
 Widget URI: https://github.com/marcelbadua/dash-so-bundle
 */
 
-class Tab_Widget extends SiteOrigin_Widget {
+class DASH_TAB_WIDGET extends SiteOrigin_Widget {
 
     function __construct() {
         //Here you can do any preparation required before calling the parent constructor, such as including additional files or initializing variables.
@@ -16,7 +16,7 @@ class Tab_Widget extends SiteOrigin_Widget {
         //Call the parent constructor with the required arguments.
         parent::__construct(
             // The unique id for your widget.
-            'tab-widget',
+            'dash-tab-widget',
 
             // The name of the widget for display purposes.
             __('Tab Widget', 'dash-so-bundle'),
@@ -24,7 +24,7 @@ class Tab_Widget extends SiteOrigin_Widget {
             // The $widget_options array, which is passed through to WP_Widget.
             // It has a couple of extras like the optional help URL, which should link to your sites help or support page.
             array(
-                'description' => __('An tab widget.', 'dash-so-bundle'),
+                'description' => __('Adds a tab widget.', 'dash-so-bundle'),
                 'help'        => 'https://github.com/marcelbadua/dash-so-bundle',
             ),
 
@@ -36,7 +36,7 @@ class Tab_Widget extends SiteOrigin_Widget {
             array(
               'title' => array(
                   'type' => 'text',
-                  'label' => __('Title.', 'widget-form-fields-text-domain')
+                  'label' => __('Title', 'widget-form-fields-text-domain')
               ),
                 'style' => array(
                     'type' => 'select',
@@ -49,7 +49,7 @@ class Tab_Widget extends SiteOrigin_Widget {
                 ),
                 'a_repeater' => array(
                     'type' => 'repeater',
-                    'label' => __( 'Tab.' , 'dash-so-bundle' ),
+                    'label' => __( 'Tab' , 'dash-so-bundle' ),
                     'item_name'  => __( 'Tab item', 'dash-so-bundle' ),
                     'item_label' => array(
                         'selector'     => "[id*='repeat_title']",
@@ -59,7 +59,7 @@ class Tab_Widget extends SiteOrigin_Widget {
                     'fields' => array(
                         'repeat_title' => array(
                             'type' => 'text',
-                            'label' => __( 'Title.', 'dash-so-bundle' )
+                            'label' => __( 'Title', 'dash-so-bundle' )
                         ),
                         'repeat_text' => array(
                             'type' => 'tinymce',
@@ -89,8 +89,8 @@ class Tab_Widget extends SiteOrigin_Widget {
         $this->register_frontend_scripts(
             array(
                 array(
-                    'dash-tab',
-                    plugin_dir_url(__FILE__) . 'js/scripts.js',
+                    'dash-tab-widget',
+                    plugin_dir_url(__FILE__) . 'js/dash-tab-widget.js',
                     array( ),
                     '0.0.1',
                     TRUE
@@ -101,8 +101,8 @@ class Tab_Widget extends SiteOrigin_Widget {
         $this->register_frontend_styles(
             array(
                 array(
-                    'dash-tab',
-                    plugin_dir_url(__FILE__) . 'styles/styles.css',
+                    'dash-tab-widget',
+                    plugin_dir_url(__FILE__) . 'styles/dash-tab-widget.css',
                     array( ),
                     '0.0.1',
                 )
@@ -119,4 +119,4 @@ class Tab_Widget extends SiteOrigin_Widget {
     }
 }
 
-siteorigin_widget_register('tab-widget', __FILE__, 'Tab_Widget');
+siteorigin_widget_register('dash-tab-widget', __FILE__, 'DASH_TAB_WIDGET');

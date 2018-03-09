@@ -1,12 +1,12 @@
 <?php
 
 /*
-Widget Name: Video Background Widget
-Description: A Video Background widget.
+Widget Name: Dash: Video Background Widget
+Description: A video background widget.
 Author: Marcel Badua
 Author URI: http://marcelbadua.com
-Widget URI: 
-Video URI: 
+Widget URI:
+Video URI:
 */
 
 class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
@@ -17,16 +17,16 @@ class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
 	    //Call the parent constructor with the required arguments.
 	    parent::__construct(
 	        // The unique id for your widget.
-	        'dash_video_background-widget',
+	        'dash-video-background-widget',
 
 	        // The name of the widget for display purposes.
-	        __('Video Background', 'sdash_video_background-widget-text-domain'),
+	        __('Dash: Video Background Widget', 'dash-so-bundle'),
 
 	        // The $widget_options array, which is passed through to WP_Widget.
 	        // It has a couple of extras like the optional help URL, which should link to your sites help or support page.
 	        array(
-	            'description' => __('A Video Background widget.', 'dash_video_background-widget-text-domain'),
-	            //'help'        => 'http://example.com/so_video_background-widget-docs',
+	            'description' => __('A video background widget.', 'dash-so-bundle'),
+	            'help'        => 'https://github.com/marcelbadua/dash-so-bundle',
 	        ),
 
 	        //The $control_options array, which is passed through to WP_Widget
@@ -37,24 +37,17 @@ class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
 	        array(
                 'url' => array(
                     'type' => 'text',
-                    'label' => __('Video URL', 'widget-form-fields-text-domain'),
-                    'default' => 'Some default text.'
+                    'label' => __('Video URL', 'dash-so-bundle'),
                 ),
-	        	// 'title' => array(
-        	 //        'type' => 'text',
-        	 //        'label' => __('Titi=le', 'widget-form-fields-text-domain'),
-        	 //        'default' => 'Some default text.'
-        	 //    ),
-          //       'link' => array(
-          //           'type' => 'text',
-          //           'label' => __('Link', 'widget-form-fields-text-domain'),
-          //           'default' => 'Some default text.'
-          //       ),
+	        			'containment' => array(
+        	         'type' => 'text',
+        	         'label' => __('Containment', 'dash-so-bundle'),
+        	     ),
+
         	    'text' => array(
     	            'type' => 'tinymce',
-    	            'label' => __( 'text.', 'widget-form-fields-text-domain' ),
-    	            //'default' => 'An example of a long message.</br>It is even possible to add a few html tags.</br><a href="siteorigin.com" target="_blank"">Links!</a>',
-    	            'rows' => 5,
+    	            'label' => __( 'text.', 'dash-so-bundle' ),
+    	            'rows' => 4,
     	            'default_editor' => 'html',
     	            'button_filters' => array(
     	                'mce_buttons' => array( $this, 'filter_mce_buttons' ),
@@ -81,12 +74,12 @@ class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
     }
 
     function enqueue_frontend_scripts( $instance ) {
-        wp_enqueue_style( 
+        wp_enqueue_style(
             'jquery.mb.YTPlayer',
-            'jquery.mb.YTPlayer/3.1.11/css/jquery.mb.YTPlayer.min.css', 
-            array( '' ), 
-            false, 
-            'all' 
+            'jquery.mb.YTPlayer/3.1.11/css/jquery.mb.YTPlayer.min.css',
+            array( '' ),
+            false,
+            'all'
         );
         wp_enqueue_script(
             'jquery.mb.YTPlayer',
@@ -97,8 +90,8 @@ class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
         );
 
         wp_enqueue_script(
-            'dash-video-background',
-            plugin_dir_url(__FILE__).'js/script.js',
+            'dash-video-background-widget',
+            plugin_dir_url(__FILE__).'js/dash-video-background-widget.js',
             array( 'jquery.mb.YTPlayer' ),
             '1.0.0',
             TRUE
@@ -108,4 +101,4 @@ class DASH_VIDEO_BACKGROUND_WIDGET extends SiteOrigin_Widget {
     }
 }
 
-siteorigin_widget_register('dash_video_background-widget', __FILE__, 'DASH_VIDEO_BACKGROUND_WIDGET');
+siteorigin_widget_register('dash-video-background-widget', __FILE__, 'DASH_VIDEO_BACKGROUND_WIDGET');

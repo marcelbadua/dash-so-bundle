@@ -1,15 +1,14 @@
 <?php
 
 /*
-Widget Name: Accordion widget
-Description: Accordion widget
-Author: Me
-Author URI: http://example.com
-Widget URI: http://example.com/accordion-widget-docs,
-Video URI: http://example.com/accordion-widget-video
+Widget Name: Dash: Accordion Widget
+Description: A widget for adding an accordion.
+Author: Marcel Badua
+Author URI: https://github.com/marcelbadua
+Widget URI: https://github.com/marcelbadua/dash-so-bundle
 */
 
-class Accordion_Widget extends SiteOrigin_Widget {
+class DASH_ACCORDION_WIDGET extends SiteOrigin_Widget {
 
     function __construct() {
         //Here you can do any preparation required before calling the parent constructor, such as including additional files or initializing variables.
@@ -17,16 +16,16 @@ class Accordion_Widget extends SiteOrigin_Widget {
         //Call the parent constructor with the required arguments.
         parent::__construct(
             // The unique id for your widget.
-            'accordion-widget',
+            'dash-accordion-widget',
 
             // The name of the widget for display purposes.
-            __('Accordion Widget', 'accordion-widget-text-domain'),
+            __('Dash: Accordion Widget', 'dash-so-bundle'),
 
             // The $widget_options array, which is passed through to WP_Widget.
             // It has a couple of extras like the optional help URL, which should link to your sites help or support page.
             array(
-                'description' => __('An accordion widget.', 'accordion-widget-text-domain'),
-                'help'        => 'http://example.com/accordion-widget-docs',
+                'description' => __('A widget for adding an accordion.', 'dash-so-bundle'),
+                'help'        => 'https://github.com/marcelbadua/dash-so-bundle',
             ),
 
             //The $control_options array, which is passed through to WP_Widget
@@ -37,12 +36,12 @@ class Accordion_Widget extends SiteOrigin_Widget {
             array(
               'title' => array(
                   'type' => 'text',
-                  'label' => __('Title.', 'widget-form-fields-text-domain')
+                  'label' => __('Title.', 'dash-so-bundle')
               ),
                 'a_repeater' => array(
                     'type' => 'repeater',
-                    'label' => __( 'Accordion.' , 'widget-form-fields-text-domain' ),
-                    'item_name'  => __( 'Accordion item', 'siteorigin-widgets' ),
+                    'label' => __( 'Accordion.' , 'dash-so-bundle' ),
+                    'item_name'  => __( 'Accordion item', 'dash-so-bundle' ),
                     'item_label' => array(
                         'selector'     => "[id*='repeat_title']",
                         'update_event' => 'change',
@@ -51,11 +50,11 @@ class Accordion_Widget extends SiteOrigin_Widget {
                     'fields' => array(
                         'repeat_title' => array(
                             'type' => 'text',
-                            'label' => __( 'Title.', 'widget-form-fields-text-domain' )
+                            'label' => __( 'Title.', 'dash-so-bundle' )
                         ),
                         'repeat_text' => array(
                             'type' => 'tinymce',
-                            'label' => __( 'Content', 'widget-form-fields-text-domain' ),
+                            'label' => __( 'Content', 'dash-so-bundle' ),
                             //'default' => 'An example of a long message.</br>It is even possible to add a few html tags.</br><a href="siteorigin.com" target="_blank"">Links!</a>',
                             'rows' => 4,
                             'default_editor' => 'html',
@@ -81,8 +80,8 @@ class Accordion_Widget extends SiteOrigin_Widget {
         $this->register_frontend_scripts(
             array(
                 array(
-                    'dash-accordion',
-                    plugin_dir_url(__FILE__) . 'js/accordion.js',
+                    'dash-accordion-widget',
+                    plugin_dir_url(__FILE__) . 'js/dash-accordion-widget.js',
                     array( ),
                     '0.0.1',
                     TRUE
@@ -93,8 +92,8 @@ class Accordion_Widget extends SiteOrigin_Widget {
         $this->register_frontend_styles(
             array(
                 array(
-                    'dash-accordion',
-                    plugin_dir_url(__FILE__) . 'styles/styles.css',
+                    'dash-accordion-widget',
+                    plugin_dir_url(__FILE__) . 'styles/dash-accordion-widget.css',
                     array( ),
                     '0.0.1',
                 )
@@ -111,4 +110,4 @@ class Accordion_Widget extends SiteOrigin_Widget {
     }
 }
 
-siteorigin_widget_register('accordion-widget', __FILE__, 'Accordion_Widget');
+siteorigin_widget_register('dash-accordion-widget', __FILE__, 'DASH_ACCORDION_WIDGET');
