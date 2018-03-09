@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name:       Dash: SiteOrigin Widget Bundle
-Plugin URI:        https://bitbucket.org/marcelbadua/dash-so-widget-bundle
-Description:       Widget by Dash. Requires 'Page Builder by SiteOrigin' and 'SiteOrigin Widgets Bundle' to be installed.
-Version:           1.2.1
-Author: 			Marcel Badua
-Author URI: 		http://marcelbadua.com/
+Plugin Name:       	Dash: SiteOrigin Widget Bundle
+Plugin URI:        	https://bitbucket.org/marcelbadua/dash-so-widget-bundle
+Description:       	Widget by Dash. Requires 'Page Builder by SiteOrigin' and 'SiteOrigin Widgets Bundle' to be installed.
+Version:           	2.0.1
+Author: 						Marcel Badua
+Author URI: 				http://marcelbadua.com/
 License:           	GNU General Public License v2
 License URI:       	http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ License URI:       	http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /*
-Copyright (C) 2015  Marcel Badua  bitterdash@gmail.com
+Copyright (C) 2018  Marcel Badua  bitterdash@gmail.com
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -50,13 +50,13 @@ class DASH_SO_WIDGET_BUNDLE {
 	private function __construct() {
 
 		require_once( sprintf("%s/inc/required.php", dirname(__FILE__)) );
-		
+
 		add_filter('siteorigin_widgets_widget_folders', array(&$this, 'dash_so_widget_bundle_collection'));
 
 	}
 
 	public function dash_so_widget_bundle_collection($folders){
-    	
+
     	$folders[] = dirname(__FILE__) . '/widgets/';
 
     	return $folders;
