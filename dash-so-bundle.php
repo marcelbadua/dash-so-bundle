@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:       	Dash: SiteOrigin Widget Bundle
-Plugin URI:        	https://bitbucket.org/marcelbadua/dash-so-widget-bundle
+Plugin URI:        	https://github.com/marcelbadua/dash-so-bundle
 Description:       	Widget by Dash. Requires 'Page Builder by SiteOrigin' and 'SiteOrigin Widgets Bundle' to be installed.
 Version:           	2.0.1
 Author: 						Marcel Badua
