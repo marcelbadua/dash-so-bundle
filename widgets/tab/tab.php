@@ -34,39 +34,29 @@ class DASH_TAB_WIDGET extends SiteOrigin_Widget {
 
             //The $form_options array, which describes the form fields used to configure SiteOrigin widgets. We'll explain these in more detail later.
             array(
-              'title' => array(
-                  'type' => 'text',
-                  'label' => __('Title', 'widget-form-fields-text-domain')
-              ),
-                'style' => array(
-                    'type' => 'select',
-                    'label' => __( 'Tab style.', 'dash-so-bundle' ),
-                    'default' => 'horizontal',
-                    'options' => array(
-                        'horizontal' => __( 'horizontal', 'dash-so-bundle' ),
-                        'vertical' => __( 'vertical', 'dash-so-bundle' )
-                    )
+                'title' => array(
+                    'type' => 'text',
+                    'label' => __('Title', 'widget-form-fields-text-domain')
                 ),
-                'a_repeater' => array(
+                'tab' => array(
                     'type' => 'repeater',
                     'label' => __( 'Tab' , 'dash-so-bundle' ),
                     'item_name'  => __( 'Tab item', 'dash-so-bundle' ),
                     'item_label' => array(
-                        'selector'     => "[id*='repeat_title']",
+                        'selector'     => "[id*='title']",
                         'update_event' => 'change',
                         'value_method' => 'val'
                     ),
                     'fields' => array(
-                        'repeat_title' => array(
+                        'title' => array(
                             'type' => 'text',
                             'label' => __( 'Title', 'dash-so-bundle' )
                         ),
-                        'repeat_text' => array(
+                        'text' => array(
                             'type' => 'tinymce',
                             'label' => __( 'Content', 'dash-so-bundle' ),
-                            //'default' => 'An example of a long message.</br>It is even possible to add a few html tags.</br><a href="siteorigin.com" target="_blank"">Links!</a>',
                             'rows' => 4,
-                            //'default_editor' => 'html',
+                            'default_editor' => 'html',
                             'button_filters' => array(
                                 'mce_buttons' => array( $this, 'filter_mce_buttons' ),
                                 'mce_buttons_2' => array( $this, 'filter_mce_buttons_2' ),

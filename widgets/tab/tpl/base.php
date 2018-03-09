@@ -1,17 +1,30 @@
 <?php if( !empty( $instance['title'] ) ) echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'] ?>
-<?php if ( ! empty( $instance['a_repeater'] ) ) :
-	$items = $instance['a_repeater']; ?>
-	<ul class="tabs">
-		<?php foreach ( $items as $index => $item ) :  ?>
-			<li rel="<?php echo str_replace(' ', '-', strtolower($item['repeat_title']) ); ?>"><?php echo $item['repeat_title']; ?></li>
-		<?php endforeach; ?>
-	</ul>
-	<div class="tab_container">
-		<?php foreach ( $items as $index => $item ) :  ?>
-			<div class="d_active tab_drawer_heading" rel="<?php echo str_replace(' ', '-', strtolower($item['repeat_title']) ); ?>"><?php echo $item['repeat_title']; ?></div>
-			<div id="<?php echo str_replace(' ', '-', strtolower($item['repeat_title']) ); ?>" class="tab_content">
-		    <?php echo wpautop($item['repeat_text']); ?>
-		  </div>
-			<?php endforeach; ?>
-		</div>
-<?php endif; ?>
+
+<?php
+
+if ( ! empty( $instance['tab'] ) ) :
+	$items = $instance['tab'];
+
+	echo '<ul class="tabs">';
+		foreach ( $items as $index => $item ) :
+			printf('<li rel="%1$s">%2$s</li>',
+				str_replace(' ', '-', strtolower($item['title']) ),
+				$item['title']
+			);
+		endforeach;
+	echo '</ul>'
+
+	echo '<div class="tab_container">';
+		foreach ( $items as $index => $item ) :
+			printf('<div class="d_active tab_drawer_heading" rel="%1$s">%2$s</div>',
+				str_replace(' ', '-', strtolower($item['title']) ),
+				$item['title']
+			);
+			printf('<div id="%1$s" class="tab_content">%2$s</div>',
+				str_replace(' ', '-', strtolower($item['title']) ),
+				wpautop($item['text'])
+			);
+		endforeach;
+	echo '</div>'
+	
+endif;

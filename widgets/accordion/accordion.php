@@ -38,21 +38,21 @@ class DASH_ACCORDION_WIDGET extends SiteOrigin_Widget {
                   'type' => 'text',
                   'label' => __('Title.', 'dash-so-bundle')
               ),
-                'a_repeater' => array(
+                'accordion' => array(
                     'type' => 'repeater',
                     'label' => __( 'Accordion.' , 'dash-so-bundle' ),
                     'item_name'  => __( 'Accordion item', 'dash-so-bundle' ),
                     'item_label' => array(
-                        'selector'     => "[id*='repeat_title']",
+                        'selector'     => "[id*='title']",
                         'update_event' => 'change',
                         'value_method' => 'val'
                     ),
                     'fields' => array(
-                        'repeat_title' => array(
+                        'title' => array(
                             'type' => 'text',
                             'label' => __( 'Title.', 'dash-so-bundle' )
                         ),
-                        'repeat_text' => array(
+                        'text' => array(
                             'type' => 'tinymce',
                             'label' => __( 'Content', 'dash-so-bundle' ),
                             //'default' => 'An example of a long message.</br>It is even possible to add a few html tags.</br><a href="siteorigin.com" target="_blank"">Links!</a>',
